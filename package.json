@@ -10,7 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "node-updown": "^0.2.2",
+    "node-updown": "^1.0.0",
     "vue": "^2.5.2"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "webpack-merge": "^4.1.0"
   },
   "engines": {
-    "node": ">= 6.0.0",
+    "node": ">= 8.0.0",
     "npm": ">= 3.0.0"
   },
   "browserslist": [

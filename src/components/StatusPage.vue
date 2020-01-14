@@ -49,7 +49,8 @@
 </template>
 
 <script>
-const Updown = require('node-updown');
+import { getChecks } from 'node-updown';
+
 export default {
   data () {
     return {
@@ -57,12 +58,9 @@ export default {
       loading: true,
       error: false,
       lastPageUpdate: null,
-      ud: null
     }
   },
   mounted () {
-    // init updown api object
-    this.ud = new Updown(this.$config.updown_read_key);
     // fetch all checks
     this.fetchChecks()
   },
@@ -70,7 +68,7 @@ export default {
     fetchChecks: async function () {
       try {
         let pageRateUpdate = 300
-        let checks = await this.ud.getChecks()
+        let checks = await getChecks(this.$config.updown_read_key)
         if (checks.length > 0) {
           // skip checks that are not published or enabled
           this.checks = checks.filter(c => {
